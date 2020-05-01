@@ -13,6 +13,12 @@ class Articles extends React.Component {
     this.fetchArticles();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.topic !== this.props.topic) {
+      this.fetchArticles();
+    }
+  }
+
   render() {
     const { articles, isLoading } = this.state;
     if (isLoading) return <p>Loading, please wait...</p>;
@@ -20,11 +26,12 @@ class Articles extends React.Component {
     return (
       <div>
         <ul className="articleList">
-          {articles.map(({ article_id, title, author }) => {
+          {articles.map(({ article_id, title, author, topic }) => {
             return (
               <li key={article_id} className="article">
                 <p>{title}</p>
                 <p>Author: {author}</p>
+                <p>{topic}</p>
               </li>
             );
           })}
@@ -34,8 +41,13 @@ class Articles extends React.Component {
   }
 
   fetchArticles() {
+    const { topic } = this.props;
     axios
-      .get("https://flannery-nc-news.herokuapp.com/api/articles")
+      .get("https://flannery-nc-news.herokuapp.com/api/articles", {
+        params: {
+          topic: topic,
+        },
+      })
       .then((response) => {
         this.setState({ articles: response.data.articles, isLoading: false });
       });

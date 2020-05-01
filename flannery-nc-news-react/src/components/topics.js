@@ -1,9 +1,9 @@
 import React from "react";
-// import { Router } from "@reach/router";
+import { Router } from "@reach/router";
 import "../App.css";
 import { Link } from "@reach/router";
 import Axios from "axios";
-// import Articles from "./articles";
+import Articles from "./articles";
 
 class Topics extends React.Component {
   state = {
@@ -16,17 +16,21 @@ class Topics extends React.Component {
 
   render() {
     const { topics } = this.state;
-    console.log(topics);
     return (
-      <nav className="topicBar">
-        {topics.map(({ slug }) => {
-          return (
-            <Link key={slug} className="topicNav" to={`/topics/${slug}`}>
-              {slug}
-            </Link>
-          );
-        })}
-      </nav>
+      <>
+        <nav className="topicBar">
+          {topics.map(({ slug }) => {
+            return (
+              <Link key={slug} className="topicNav" to={`/topics/${slug}`}>
+                {slug}
+              </Link>
+            );
+          })}
+        </nav>
+        <Router>
+          <Articles path="/:topic" />
+        </Router>
+      </>
     );
   }
 
