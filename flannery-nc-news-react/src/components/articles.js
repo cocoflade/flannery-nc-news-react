@@ -1,12 +1,15 @@
 import React from "react";
 import "../App.css";
 import axios from "axios";
-// import axios from "axios";
+import ArticleCard from "./article.card";
+
+// import { Router } from "@reach/router";
 
 class Articles extends React.Component {
   state = {
     articles: [],
     isLoading: true,
+    showArticle: false,
   };
 
   componentDidMount() {
@@ -24,28 +27,23 @@ class Articles extends React.Component {
     if (isLoading) return <p>Loading, please wait...</p>;
 
     return (
-      <div>
+      <>
         <ul className="articleList">
-          {articles.map(({ article_id, title, author, topic }) => {
-            return (
-              <li key={article_id} className="article">
-                <p>{title}</p>
-                <p>Author: {author}</p>
-                <p>{topic}</p>
-              </li>
-            );
+          {articles.map((article) => {
+            return <ArticleCard article={article} key={article.article_id} />;
           })}
         </ul>
-      </div>
+      </>
     );
   }
 
   fetchArticles() {
-    const { topic } = this.props;
+    const { topic, article_id } = this.props;
     axios
       .get("https://flannery-nc-news.herokuapp.com/api/articles", {
         params: {
           topic: topic,
+          article_id: article_id,
         },
       })
       .then((response) => {
@@ -55,3 +53,27 @@ class Articles extends React.Component {
 }
 
 export default Articles;
+
+//   showArticle() {
+//     this.setState((currState) => {
+//       return { showArticle: !currState.showArticle };
+//     });
+//   }
+
+// return (
+//   <div>
+//     <ul className="articleList">
+//       {articles.map(({ article_id, title, author, topic }) => {
+//         return (
+//           <li key={article_id} className="article">
+//             <p>{title}</p>
+//             <p>Author: {author}</p>
+//             {/* <p>{topic}</p> */}
+//             <button onClick={this.showArticle}>See all</button>
+//           </li>
+//         );
+//       })}
+//     </ul>
+//   </div>
+// );
+// }

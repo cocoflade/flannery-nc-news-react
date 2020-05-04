@@ -4,18 +4,45 @@
 }
 
 .app-header {
-  border: 1px solid black;
+  background-color: lightblue;
 }
 
 .navBar {
-  border: 1px solid black;
+  background-color: lightcoral;
+}
+
+.link:link {
+  color: purple;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link:visited {
+  color: purple;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .articleList {
-  border: 1px solid black;
+  background-color: lightsteelblue;
   list-style-type: none;
 }
 
 .article {
-  border: 1px solid black;
+  background-color: lightyellow;
+}
+
+.title {
+  /* text-decoration: underline; */
+}
+button {
+  background-color: #202829;
+  color: white;
+  border: 2px solid #ba1f31;
+}
+
+button:hover {
+  background-color: #ba1f31;
+  color: white;
+  border: 2px solid #202829;
 }
