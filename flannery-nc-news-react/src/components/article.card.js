@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
+import CommentButton from "./commentButton";
 
 class ArticleCard extends React.Component {
   state = {
@@ -31,7 +32,7 @@ class ArticleCard extends React.Component {
             <p>Topic: {article.topic}</p>
             <p>Created at: {article.created_at}</p>
             <p>Comments: {article.comment_count}</p>
-            <button>See comments</button>
+            <CommentButton />
           </section>
         ) : null}
       </li>

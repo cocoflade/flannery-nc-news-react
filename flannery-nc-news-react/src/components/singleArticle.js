@@ -1,9 +1,11 @@
 import React from "react";
+import CommentButton from "./commentButton";
 import * as api from "../utils/api";
 
 class SingleArticle extends React.Component {
   state = {
     article: [],
+    comments: [],
     isLoading: true,
   };
 
@@ -25,7 +27,7 @@ class SingleArticle extends React.Component {
         <p>Topic: {article.topic}</p>
         <p>Created at: {article.created_at}</p>
         <p>Comments: {article.comment_count}</p>
-        <button>See comments</button>
+        <CommentButton />
       </main>
     );
   }

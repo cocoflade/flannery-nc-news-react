@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import axios from "axios";
 import ArticleCard from "./article.card";
+import SortButtons from "./sortButtons";
 
 // import { Router } from "@reach/router";
 
@@ -22,12 +23,18 @@ class Articles extends React.Component {
     }
   }
 
+  articleSortBy = (sorted) => {
+    this.fetchArticles(sorted);
+    console.log(sorted);
+  };
+
   render() {
     const { articles, isLoading } = this.state;
     if (isLoading) return <p>Loading, please wait...</p>;
 
     return (
       <>
+        <SortButtons sorted={this.articleSortBy} />
         <ul className="articleList">
           {articles.map((article) => {
             return <ArticleCard article={article} key={article.article_id} />;
@@ -37,13 +44,16 @@ class Articles extends React.Component {
     );
   }
 
-  fetchArticles() {
+  fetchArticles(sorted) {
     const { topic, article_id } = this.props;
+    console.log(sorted);
+
     axios
       .get("https://flannery-nc-news.herokuapp.com/api/articles", {
         params: {
           topic: topic,
           article_id: article_id,
+          sorted: sorted,
         },
       })
       .then((response) => {
@@ -53,27 +63,3 @@ class Articles extends React.Component {
 }
 
 export default Articles;
-
-//   showArticle() {
-//     this.setState((currState) => {
-//       return { showArticle: !currState.showArticle };
-//     });
-//   }
-
-// return (
-//   <div>
-//     <ul className="articleList">
-//       {articles.map(({ article_id, title, author, topic }) => {
-//         return (
-//           <li key={article_id} className="article">
-//             <p>{title}</p>
-//             <p>Author: {author}</p>
-//             {/* <p>{topic}</p> */}
-//             <button onClick={this.showArticle}>See all</button>
-//           </li>
-//         );
-//       })}
-//     </ul>
-//   </div>
-// );
-// }
