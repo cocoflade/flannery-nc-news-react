@@ -46,7 +46,6 @@ class Articles extends React.Component {
 
   fetchArticles(sorted) {
     const { topic, article_id } = this.props;
-    console.log(sorted);
 
     axios
       .get("https://flannery-nc-news.herokuapp.com/api/articles", {

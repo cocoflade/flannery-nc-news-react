@@ -1,5 +1,6 @@
 import React from "react";
 import * as api from "../utils/api";
+import CommentCard from "./comment.card";
 
 class Comments extends React.Component {
   state = {
@@ -14,16 +15,14 @@ class Comments extends React.Component {
   render() {
     const { comments, isLoading } = this.state;
     if (isLoading) return <p>Loading, please wait...</p>;
-
+    console.log(comments);
+    //map
     return (
-      <main className="comments">
-        <p>Author: {comments.author}</p>
-        <p>ID: {comments.article_id}</p>
-        <p>Comment ID: {comments.comment_id}</p>
-        <p>Votes: {comments.votes}</p>
-        <p>Body: {comments.body}</p>
-        <p>Created at: {comments.created_at}</p>
-      </main>
+      <ul className="commentList">
+        {comments.map((comment) => {
+          return <CommentCard comment={comment} key={comment.comment_id} />;
+        })}
+      </ul>
     );
   }
 

@@ -28,7 +28,16 @@
   list-style-type: none;
 }
 
+.commentList {
+  background-color: lightsteelblue;
+  list-style-type: none;
+}
+
 .article {
+  background-color: lightyellow;
+}
+
+.comment {
   background-color: lightyellow;
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
-import CommentButton from "./commentButton";
+import { Link } from "@reach/router";
+
 import * as api from "../utils/api";
 
 class SingleArticle extends React.Component {
@@ -27,7 +28,9 @@ class SingleArticle extends React.Component {
         <p>Topic: {article.topic}</p>
         <p>Created at: {article.created_at}</p>
         <p>Comments: {article.comment_count}</p>
-        <CommentButton />
+        <Link className="link" to={`/articles/${article.article_id}/comments`}>
+          <button>See comments</button>
+        </Link>
       </main>
     );
   }
