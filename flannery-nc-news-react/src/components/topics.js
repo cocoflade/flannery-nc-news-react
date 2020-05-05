@@ -21,7 +21,7 @@ class Topics extends React.Component {
         <nav className="topicBar">
           {topics.map(({ slug }) => {
             return (
-              <Link key={slug} className="topicNav" to={`/topics/${slug}`}>
+              <Link key={slug} className="link" to={`/topics/${slug}`}>
                 {slug}
               </Link>
             );

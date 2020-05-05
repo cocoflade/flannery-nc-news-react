@@ -19,7 +19,7 @@ class ArticleCard extends React.Component {
 
     return (
       <li key={article.article_id} className="article">
-        <Link className="link" to={`/articles/${article.article_id}`}>
+        <Link className="articleLink" to={`/articles/${article.article_id}`}>
           <h4 className="title">{article.title}</h4>
         </Link>
 
@@ -37,7 +37,7 @@ class ArticleCard extends React.Component {
             <p>Topic: {article.topic}</p>
 
             <Link
-              className="link"
+              className="articleLink"
               to={`/articles/${article.article_id}/comments`}
             >
               <button>See comments</button>
