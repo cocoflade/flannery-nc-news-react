@@ -17,3 +17,7 @@ export const getArticleComment = (id) => {
       return comments;
     });
 };
+
+export const PostComment = () => {
+  return;
+};

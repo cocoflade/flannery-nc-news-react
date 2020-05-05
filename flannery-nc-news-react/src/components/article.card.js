@@ -21,16 +21,18 @@ class ArticleCard extends React.Component {
         </Link>
 
         <p>Author: {article.author}</p>
+        <p>Created at: {article.created_at}</p>
+        <p>Comments: {article.comment_count}</p>
+        <p>Votes: {article.votes}</p>
+
         <button onClick={this.showHideArticle}>Read</button>
 
         {this.state.showArticle ? (
           <section>
             <p>ID: {article.article_id}</p>
             <p>{article.body}</p>
-            <p>Votes: {article.votes}</p>
             <p>Topic: {article.topic}</p>
-            <p>Created at: {article.created_at}</p>
-            <p>Comments: {article.comment_count}</p>
+
             <Link
               className="link"
               to={`/articles/${article.article_id}/comments`}

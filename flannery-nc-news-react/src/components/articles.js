@@ -25,7 +25,6 @@ class Articles extends React.Component {
 
   articleSortBy = (sorted) => {
     this.fetchArticles(sorted);
-    console.log(sorted);
   };
 
   render() {

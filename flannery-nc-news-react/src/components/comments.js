@@ -1,6 +1,7 @@
 import React from "react";
 import * as api from "../utils/api";
 import CommentCard from "./comment.card";
+import CommentForm from "./comment.form";
 
 class Comments extends React.Component {
   state = {
@@ -14,17 +15,29 @@ class Comments extends React.Component {
 
   render() {
     const { comments, isLoading } = this.state;
+    const { article_id } = this.props;
+
     if (isLoading) return <p>Loading, please wait...</p>;
-    console.log(comments);
-    //map
     return (
       <ul className="commentList">
+        <CommentForm
+          addStateComment={this.addStateComment}
+          article_id={article_id}
+        />
         {comments.map((comment) => {
           return <CommentCard comment={comment} key={comment.comment_id} />;
         })}
       </ul>
     );
   }
+
+  addStateComment = (newComment) => {
+    this.setState((currState) => {
+      return {
+        comments: [newComment, ...currState.comments],
+      };
+    });
+  };
 
   fetchComments() {
     const { article_id } = this.props;

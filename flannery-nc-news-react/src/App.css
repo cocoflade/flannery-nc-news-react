@@ -31,6 +31,7 @@
 .commentList {
   background-color: lightsteelblue;
   list-style-type: none;
+  margin: 0;
 }
 
 .article {
