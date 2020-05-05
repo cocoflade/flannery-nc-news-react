@@ -25,11 +25,25 @@ class Comments extends React.Component {
           article_id={article_id}
         />
         {comments.map((comment) => {
-          return <CommentCard comment={comment} key={comment.comment_id} />;
+          return (
+            <CommentCard
+              comment={comment}
+              key={comment.comment_id}
+              deleteComment={this.deleteComment}
+            />
+          );
         })}
       </ul>
     );
   }
+
+  deleteComment = (index) => {
+    this.setState((currState) => {
+      const copyArr = [...currState.comments];
+      copyArr.splice(index, 1);
+      return { comments: copyArr };
+    });
+  };
 
   addStateComment = (newComment) => {
     this.setState((currState) => {
