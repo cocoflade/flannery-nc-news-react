@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-
+import VoteUpdater from "./voteUpdater";
 import * as api from "../utils/api";
 
 class SingleArticle extends React.Component {
@@ -28,6 +28,8 @@ class SingleArticle extends React.Component {
         <p>Topic: {article.topic}</p>
         <p>Created at: {article.created_at}</p>
         <p>Comments: {article.comment_count}</p>
+        <VoteUpdater votes={article.votes} id={article.article_id} />
+
         <Link className="link" to={`/articles/${article.article_id}/comments`}>
           <button>See comments</button>
         </Link>

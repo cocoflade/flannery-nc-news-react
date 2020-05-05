@@ -15,7 +15,7 @@ class Comments extends React.Component {
 
   render() {
     const { comments, isLoading } = this.state;
-    const { article_id } = this.props;
+    const { article_id, user } = this.props;
 
     if (isLoading) return <p>Loading, please wait...</p>;
     return (
@@ -23,6 +23,7 @@ class Comments extends React.Component {
         <CommentForm
           addStateComment={this.addStateComment}
           article_id={article_id}
+          user={user}
         />
         {comments.map((comment) => {
           return (

@@ -5,19 +5,19 @@ class CommentForm extends React.Component {
   state = {
     body: "",
     article_id: "",
-    author: "jessjelly",
+    user: "",
   };
 
   handleCommentSubmission = (event) => {
-    const { article_id, addStateComment } = this.props;
-    const { body, author } = this.state;
+    const { article_id, addStateComment, user } = this.props;
+    const { body } = this.state;
     event.preventDefault();
     Axios.post(
       `https://flannery-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
       {
         body,
         article_id,
-        username: author,
+        username: user,
       }
     )
       .then((response) => {

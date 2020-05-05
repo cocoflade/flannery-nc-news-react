@@ -4,8 +4,6 @@ import axios from "axios";
 import ArticleCard from "./article.card";
 import SortButtons from "./sortButtons";
 
-// import { Router } from "@reach/router";
-
 class Articles extends React.Component {
   state = {
     articles: [],

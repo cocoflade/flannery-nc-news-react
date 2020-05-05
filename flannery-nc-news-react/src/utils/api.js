@@ -21,3 +21,12 @@ export const getArticleComment = (id) => {
 export const PostComment = () => {
   return;
 };
+
+export const UpdateVotes = (id, voteChange) => {
+  return axios.patch(
+    `https://flannery-nc-news.herokuapp.com/api/articles/${id}`,
+    {
+      votes: voteChange,
+    }
+  );
+};
