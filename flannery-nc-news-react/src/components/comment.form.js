@@ -6,6 +6,7 @@ class CommentForm extends React.Component {
     body: "",
     article_id: "",
     user: "",
+    err: "",
   };
 
   handleCommentSubmission = (event) => {
@@ -37,7 +38,12 @@ class CommentForm extends React.Component {
       <form onSubmit={this.handleCommentSubmission}>
         <label>
           Comment:{" "}
-          <input name="body" onChange={this.handleChange} value={body} />
+          <input
+            name="body"
+            onChange={this.handleChange}
+            value={body}
+            required
+          />
         </label>
 
         <button>Add comment</button>

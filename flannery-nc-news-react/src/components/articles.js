@@ -3,13 +3,14 @@ import "../App.css";
 import axios from "axios";
 import ArticleCard from "./article.card";
 import SortButtons from "./sortButtons";
+import ErrorDisplay from "./ErrorDisplay";
 
 class Articles extends React.Component {
   state = {
     articles: [],
     isLoading: true,
     showArticle: false,
-    err: {},
+    err: "",
   };
 
   componentDidMount() {
@@ -27,9 +28,9 @@ class Articles extends React.Component {
   };
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, err } = this.state;
     if (isLoading) return <p>Loading, please wait...</p>;
-
+    if (err) return <ErrorDisplay err={err} />;
     return (
       <>
         <SortButtons sorted={this.articleSortBy} />
@@ -57,9 +58,10 @@ class Articles extends React.Component {
         this.setState({
           articles: response.data.articles,
           isLoading: false,
-        }).catch((err) => {
-          this.setState({ isLoading: false, err: err.response.data.msg });
         });
+      })
+      .catch((err) => {
+        this.setState({ isLoading: false, err: err.response.data.msg });
       });
   }
 }

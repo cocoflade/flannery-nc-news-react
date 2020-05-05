@@ -2,11 +2,13 @@ import React from "react";
 import * as api from "../utils/api";
 import CommentCard from "./comment.card";
 import CommentForm from "./comment.form";
+import ErrorDisplay from "./ErrorDisplay";
 
 class Comments extends React.Component {
   state = {
     comments: [],
     isLoading: true,
+    err: "",
   };
 
   componentDidMount() {
@@ -14,10 +16,11 @@ class Comments extends React.Component {
   }
 
   render() {
-    const { comments, isLoading } = this.state;
+    const { comments, isLoading, err } = this.state;
     const { article_id, user } = this.props;
 
     if (isLoading) return <p>Loading, please wait...</p>;
+    if (err) return <ErrorDisplay err={err} />;
     return (
       <ul className="commentList">
         <CommentForm
@@ -56,9 +59,14 @@ class Comments extends React.Component {
 
   fetchComments() {
     const { article_id } = this.props;
-    api.getArticleComment(article_id).then((comments) => {
-      this.setState({ comments, isLoading: false });
-    });
+    api
+      .getArticleComment(article_id)
+      .then((comments) => {
+        this.setState({ comments, isLoading: false });
+      })
+      .catch((err) => {
+        this.setState({ isLoading: false, err: err.response.data.msg });
+      });
   }
 }
 
