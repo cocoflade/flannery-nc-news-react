@@ -7,6 +7,7 @@ import Articles from "./components/articles";
 import Topics from "./components/topics";
 import Comments from "./components/comments";
 import SingleArticle from "./components/singleArticle";
+import ErrorDisplay from "./components/ErrorDisplay";
 
 class App extends React.Component {
   state = {
@@ -25,6 +26,7 @@ class App extends React.Component {
           <SingleArticle path="/articles/:article_id" />
           <Comments path="/articles/:article_id/comments" user={user} />
           <Topics path="/topics/*" />
+          <ErrorDisplay default />
         </Router>
       </div>
     );

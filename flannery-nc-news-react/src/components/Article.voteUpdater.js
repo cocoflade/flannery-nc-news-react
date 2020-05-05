@@ -4,6 +4,7 @@ import * as api from "../utils/api";
 class ArticleVoteUpdater extends React.Component {
   state = {
     voteDifference: 0,
+    err: "",
   };
 
   render() {
@@ -25,7 +26,14 @@ class ArticleVoteUpdater extends React.Component {
     this.setState((currState) => {
       return { voteDifference: currState.voteDifference + voteChange };
     });
-    api.UpdateArticleVotes(id, voteChange);
+    api.UpdateArticleVotes(id, voteChange).catch(() => {
+      this.setState((currState) => {
+        return {
+          voteDifference: currState.voteDifference - voteChange,
+          err: "Sorry, try again later",
+        };
+      });
+    });
   };
 }
 

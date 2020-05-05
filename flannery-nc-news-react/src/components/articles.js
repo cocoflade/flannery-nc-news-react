@@ -9,6 +9,7 @@ class Articles extends React.Component {
     articles: [],
     isLoading: true,
     showArticle: false,
+    err: {},
   };
 
   componentDidMount() {
@@ -53,7 +54,12 @@ class Articles extends React.Component {
         },
       })
       .then((response) => {
-        this.setState({ articles: response.data.articles, isLoading: false });
+        this.setState({
+          articles: response.data.articles,
+          isLoading: false,
+        }).catch((err) => {
+          this.setState({ isLoading: false, err: err.response.data.msg });
+        });
       });
   }
 }
