@@ -1,7 +1,7 @@
 import React from "react";
 import * as api from "../utils/api";
 
-class VoteUpdater extends React.Component {
+class ArticleVoteUpdater extends React.Component {
   state = {
     voteDifference: 0,
   };
@@ -25,8 +25,8 @@ class VoteUpdater extends React.Component {
     this.setState((currState) => {
       return { voteDifference: currState.voteDifference + voteChange };
     });
-    api.UpdateVotes(id, voteChange);
+    api.UpdateArticleVotes(id, voteChange);
   };
 }
 
-export default VoteUpdater;
+export default ArticleVoteUpdater;

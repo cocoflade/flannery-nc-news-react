@@ -22,9 +22,18 @@ export const PostComment = () => {
   return;
 };
 
-export const UpdateVotes = (id, voteChange) => {
+export const UpdateArticleVotes = (id, voteChange) => {
   return axios.patch(
     `https://flannery-nc-news.herokuapp.com/api/articles/${id}`,
+    {
+      votes: voteChange,
+    }
+  );
+};
+
+export const UpdateCommentVotes = (comment_id, voteChange) => {
+  return axios.patch(
+    `https://flannery-nc-news.herokuapp.com/api/comments/${comment_id}`,
     {
       votes: voteChange,
     }

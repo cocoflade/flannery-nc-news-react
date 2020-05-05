@@ -1,10 +1,7 @@
 import React from "react";
+import CommentVoteUpdater from "./Comment.voteUpdater";
 
 class CommentCard extends React.Component {
-  state = {
-    name: "jessjelly",
-  };
-
   render() {
     const { comment, deleteComment } = this.props;
 
@@ -16,6 +13,12 @@ class CommentCard extends React.Component {
         <p>Votes: {comment.votes}</p>
         <p>Body: {comment.body}</p>
         <p>Created at: {comment.created_at}</p>
+        <CommentVoteUpdater
+          votes={comment.votes}
+          id={comment.article_id}
+          comment_id={comment.comment_id}
+        />
+
         {comment.author === "jessjelly" ? (
           <section>
             <button onClick={deleteComment}>delete comment</button>
