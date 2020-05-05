@@ -12,8 +12,8 @@ class CommentVoteUpdater extends React.Component {
     const { voteDifference } = this.state;
     return (
       <div>
-        <p>
-          <button onClick={() => this.handleVote(1)}>Up</button> This has{" "}
+        <p className="voteP">
+          <button onClick={() => this.handleVote(1)}>Up</button>{" "}
           {votes + voteDifference} votes{" "}
           <button onClick={() => this.handleVote(-1)}>Down</button>
         </p>

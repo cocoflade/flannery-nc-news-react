@@ -7,11 +7,14 @@ function CommentCard(props) {
 
   return (
     <li className="comment">
-      <p>Author: {comment.author}</p>
-      <p>ID: {comment.article_id}</p>
-      <p>Comment ID: {comment.comment_id}</p>
-      <p>Created at: {humanDate}</p>
-      <p>Body: {comment.body}</p>
+      <p className="bodyP">"{comment.body}"</p>
+      <p className="authorDateP">
+        Published by {comment.author} on {humanDate}
+      </p>
+
+      <p className="idP">
+        Article ID: {comment.article_id} Comment ID: {comment.comment_id}
+      </p>
       <CommentVoteUpdater
         votes={comment.votes}
         id={comment.article_id}

@@ -24,15 +24,22 @@ class SingleArticle extends React.Component {
     if (err) return <ErrorDisplay err={err} />;
     return (
       <main className="article">
-        <h4 className="title">{article.title}</h4>
-        <p>Author: {article.author}</p>
-        <p>ID: {article.article_id}</p>
-        <p>{article.body}</p>
-        <p>Votes: {article.votes}</p>
-        <p>Topic: {article.topic}</p>
-        <p>Created at: {humanDate}</p>
-        <p>Comments: {article.comment_count}</p>
+        <h3 className="title">
+          <span className="redSyntax">&lt;</span>
+          {article.title}
+          <span className="redSyntax">/></span>
+        </h3>
+        <p className="authorDateP">
+          Published by {article.author} on {humanDate}
+        </p>
+        <p>{article.comment_count} Comments</p>
         <ArticleVoteUpdater votes={article.votes} id={article.article_id} />
+
+        <p className="idP">Article ID: {article.article_id}</p>
+        <p className="bodyP">{article.body}</p>
+        <p className="voteP">
+          There's more like this under the {article.topic} tab!
+        </p>
 
         <Link
           className="articleLink"

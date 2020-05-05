@@ -1,7 +1,11 @@
 .App {
   text-align: center;
-  grid-template-areas: "app-header navBar, this, that";
 }
+
+/* .main {
+  display: grid;
+  grid-template-columns: 60% auto 30%;
+} */
 
 .app-header {
   background-color: #202829;
@@ -46,7 +50,13 @@
 }
 
 .articleLink {
-  color: rgb(255, 255, 255);
+  color: #202829;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.articleLink:hover {
+  color: #ba1f31;
   text-decoration: none;
   font-weight: bold;
 }
@@ -55,6 +65,10 @@
   color: #202829;
   text-decoration: none;
   font-weight: bold;
+}
+
+.artLink {
+  text-decoration: none;
 }
 
 .articleList {
@@ -70,6 +84,22 @@
   margin: 0;
 }
 
+.idP {
+  font-size: small;
+}
+
+.authorDateP {
+  font-weight: bold;
+}
+
+.bodyP {
+  font-style: italic;
+}
+
+.voteP {
+  font-weight: bold;
+}
+
 .article {
   background-color: lightyellow;
 }
@@ -78,9 +108,6 @@
   background-color: lightyellow;
 }
 
-.title {
-  /* text-decoration: underline; */
-}
 button {
   background-color: #202829;
   color: white;

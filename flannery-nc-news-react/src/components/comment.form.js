@@ -1,5 +1,6 @@
 import React from "react";
-import Axios from "axios";
+// import Axios from "axios";
+import * as api from "../utils/api";
 
 class CommentForm extends React.Component {
   state = {
@@ -13,14 +14,8 @@ class CommentForm extends React.Component {
     const { article_id, addStateComment, user } = this.props;
     const { body } = this.state;
     event.preventDefault();
-    Axios.post(
-      `https://flannery-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
-      {
-        body,
-        article_id,
-        username: user,
-      }
-    )
+    api
+      .PostComment(article_id, addStateComment, user, body)
       .then((response) => {
         addStateComment(response.data.comment);
       })

@@ -18,23 +18,30 @@ class ArticleCard extends React.Component {
     const humanDate = new Date(article.created_at).toDateString();
 
     return (
-      <li key={article.article_id} className="article">
-        <Link className="articleLink" to={`/articles/${article.article_id}`}>
-          <h4 className="title">{article.title}</h4>
+      <li className="article">
+        <Link className="artLink" to={`/articles/${article.article_id}`}>
+          <h3 className="articleLink">
+            <span className="redSyntax">&lt;</span>
+            {article.title}
+            <span className="redSyntax">/></span>
+          </h3>
         </Link>
 
-        <p>Author: {article.author}</p>
-        <p>Created at: {humanDate}</p>
-        <p>Comments: {article.comment_count}</p>
+        <p className="authorDateP">
+          Published by {article.author} on {humanDate}
+        </p>
+        <p className="idP">{article.comment_count} Comments</p>
         <ArticleVoteUpdater votes={article.votes} id={article.article_id} />
 
         <button onClick={this.showHideArticle}>Read all</button>
 
         {this.state.showArticle ? (
           <section>
-            <p>ID: {article.article_id}</p>
-            <p>{article.body}</p>
-            <p>Topic: {article.topic}</p>
+            <p className="idP">Article ID: {article.article_id}</p>
+            <p className="bodyP">{article.body}</p>
+            <p className="voteP">
+              There's more like this under the {article.topic} tab!
+            </p>
 
             <Link
               className="articleLink"

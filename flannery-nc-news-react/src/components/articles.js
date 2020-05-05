@@ -1,8 +1,8 @@
 import React from "react";
 import "../App.css";
-import axios from "axios";
-import ArticleCard from "./article.card";
-import SortButtons from "./sortButtons";
+import * as api from "../utils/api";
+import ArticleCard from "./Article.card";
+import SortButtons from "./SortButtons";
 import ErrorDisplay from "./ErrorDisplay";
 
 class Articles extends React.Component {
@@ -46,14 +46,8 @@ class Articles extends React.Component {
   fetchArticles(sorted) {
     const { topic, article_id } = this.props;
 
-    axios
-      .get("https://flannery-nc-news.herokuapp.com/api/articles", {
-        params: {
-          topic: topic,
-          article_id: article_id,
-          sorted: sorted,
-        },
-      })
+    api
+      .getArticles(topic, article_id, sorted)
       .then((response) => {
         this.setState({
           articles: response.data.articles,
