@@ -4,6 +4,7 @@ import CommentVoteUpdater from "./Comment.voteUpdater";
 class CommentCard extends React.Component {
   render() {
     const { comment, deleteComment } = this.props;
+    const humanDate = new Date(comment.created_at).toDateString();
 
     return (
       <li className="comment">
@@ -12,7 +13,7 @@ class CommentCard extends React.Component {
         <p>Comment ID: {comment.comment_id}</p>
         <p>Votes: {comment.votes}</p>
         <p>Body: {comment.body}</p>
-        <p>Created at: {comment.created_at}</p>
+        <p>Created at: {humanDate}</p>
         <CommentVoteUpdater
           votes={comment.votes}
           id={comment.article_id}

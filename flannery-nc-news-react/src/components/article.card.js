@@ -15,6 +15,8 @@ class ArticleCard extends React.Component {
 
   render() {
     const { article } = this.props;
+    const humanDate = new Date(article.created_at).toDateString();
+
     return (
       <li key={article.article_id} className="article">
         <Link className="link" to={`/articles/${article.article_id}`}>
@@ -22,9 +24,8 @@ class ArticleCard extends React.Component {
         </Link>
 
         <p>Author: {article.author}</p>
-        <p>Created at: {article.created_at}</p>
+        <p>Created at: {humanDate}</p>
         <p>Comments: {article.comment_count}</p>
-        {/* <p>Votes: {article.votes}</p> */}
         <ArticleVoteUpdater votes={article.votes} id={article.article_id} />
 
         <button onClick={this.showHideArticle}>Read all</button>

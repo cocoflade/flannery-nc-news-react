@@ -16,6 +16,8 @@ class SingleArticle extends React.Component {
 
   render() {
     const { article, isLoading } = this.state;
+    const humanDate = new Date(article.created_at).toDateString();
+
     if (isLoading) return <p>Loading, please wait...</p>;
 
     return (
@@ -26,7 +28,7 @@ class SingleArticle extends React.Component {
         <p>{article.body}</p>
         <p>Votes: {article.votes}</p>
         <p>Topic: {article.topic}</p>
-        <p>Created at: {article.created_at}</p>
+        <p>Created at: {humanDate}</p>
         <p>Comments: {article.comment_count}</p>
         <ArticleVoteUpdater votes={article.votes} id={article.article_id} />
 
