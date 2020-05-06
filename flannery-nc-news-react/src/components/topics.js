@@ -2,7 +2,7 @@ import React from "react";
 import { Router } from "@reach/router";
 import "../App.css";
 import { Link } from "@reach/router";
-import Axios from "axios";
+import * as api from "../utils/api";
 import Articles from "./articles";
 
 class Topics extends React.Component {
@@ -35,11 +35,9 @@ class Topics extends React.Component {
   }
 
   fetchTopics() {
-    Axios.get("https://flannery-nc-news.herokuapp.com/api/topics").then(
-      (response) => {
-        this.setState({ topics: response.data.topics });
-      }
-    );
+    api.getTopics().then((response) => {
+      this.setState({ topics: response.data.topics });
+    });
   }
 }
 

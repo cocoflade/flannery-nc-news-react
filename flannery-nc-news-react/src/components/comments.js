@@ -3,6 +3,7 @@ import * as api from "../utils/api";
 import CommentCard from "./comment.card";
 import CommentForm from "./comment.form";
 import ErrorDisplay from "./ErrorDisplay";
+import LoadingSign from "../components/Loading/LoadingSign";
 
 class Comments extends React.Component {
   state = {
@@ -19,7 +20,7 @@ class Comments extends React.Component {
     const { comments, isLoading, err } = this.state;
     const { article_id, user } = this.props;
 
-    if (isLoading) return <p>Loading, please wait...</p>;
+    if (isLoading) return <LoadingSign />;
     if (err) return <ErrorDisplay err={err} />;
     return (
       <ul className="commentList">

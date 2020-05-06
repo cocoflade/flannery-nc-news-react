@@ -20,16 +20,15 @@ class App extends React.Component {
       <div className="App">
         <Header user={user} />
         <NavBar />
-        <main className="main">
-          <Router>
-            <Articles path="/" />
-            <Articles path="/articles" />
-            <SingleArticle path="/articles/:article_id" />
-            <Comments path="/articles/:article_id/comments" user={user} />
-            <Topics path="/topics/*" />
-            <ErrorDisplay default />
-          </Router>
-        </main>
+
+        <Router>
+          <Articles path="/" />
+          <Articles path="/articles" />
+          <SingleArticle path="/articles/:article_id" />
+          <Comments path="/articles/:article_id/comments" user={user} />
+          <Topics path="/topics/*" />
+          <ErrorDisplay default />
+        </Router>
       </div>
     );
   }

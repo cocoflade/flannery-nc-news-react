@@ -1,5 +1,4 @@
 import React from "react";
-// import Axios from "axios";
 import * as api from "../utils/api";
 
 class CommentForm extends React.Component {

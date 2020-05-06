@@ -4,6 +4,7 @@ import * as api from "../utils/api";
 import ArticleCard from "./Article.card";
 import SortButtons from "./SortButtons";
 import ErrorDisplay from "./ErrorDisplay";
+import LoadingSign from "../components/Loading/LoadingSign";
 
 class Articles extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class Articles extends React.Component {
 
   render() {
     const { articles, isLoading, err } = this.state;
-    if (isLoading) return <p>Loading, please wait...</p>;
+    if (isLoading) return <LoadingSign />;
     if (err) return <ErrorDisplay err={err} />;
     return (
       <>

@@ -13,9 +13,13 @@ class CommentVoteUpdater extends React.Component {
     return (
       <div>
         <p className="voteP">
-          <button onClick={() => this.handleVote(1)}>Up</button>{" "}
+          <button className="voteBut" onClick={() => this.handleVote(1)}>
+            &#8593;
+          </button>{" "}
           {votes + voteDifference} votes{" "}
-          <button onClick={() => this.handleVote(-1)}>Down</button>
+          <button className="voteBut" onClick={() => this.handleVote(-1)}>
+            &#8595;
+          </button>
         </p>
       </div>
     );

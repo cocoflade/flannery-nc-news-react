@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import ArticleVoteUpdater from "./Article.voteUpdater";
 import * as api from "../utils/api";
 import ErrorDisplay from "./ErrorDisplay";
+import LoadingSign from "../components/Loading/LoadingSign";
 
 class SingleArticle extends React.Component {
   state = {
@@ -20,7 +21,7 @@ class SingleArticle extends React.Component {
     const { article, isLoading, err } = this.state;
     const humanDate = new Date(article.created_at).toDateString();
 
-    if (isLoading) return <p>Loading, please wait...</p>;
+    if (isLoading) return <LoadingSign />;
     if (err) return <ErrorDisplay err={err} />;
     return (
       <main className="article">

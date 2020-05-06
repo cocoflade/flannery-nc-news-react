@@ -26,6 +26,10 @@ export const getArticleComment = (id) => {
     });
 };
 
+export const getTopics = () => {
+  return axios.get("https://flannery-nc-news.herokuapp.com/api/topics");
+};
+
 export const PostComment = (article_id, addStateComment, user, body) => {
   return axios.post(
     `https://flannery-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
