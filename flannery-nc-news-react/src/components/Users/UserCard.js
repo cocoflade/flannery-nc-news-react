@@ -13,7 +13,7 @@ function UserCard(props) {
         </h3>
       </Link>{" "}
       <img src={avatar} alt="avatar"></img>
-      <p className="idP">{name}</p>
+      <p className="authorDateVoteP">{name}</p>
     </li>
   );
 }

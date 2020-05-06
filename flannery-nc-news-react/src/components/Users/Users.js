@@ -23,8 +23,12 @@ class Users extends React.Component {
     if (isLoading) return <LoadingSign />;
     if (err) return <ErrorDisplay err={err} />;
     return (
-      <>
+      <main className="userPage">
         <ul className="userList">
+          <h2>
+            <span className="redSyntax">&lt;</span>Users
+            <span className="redSyntax">/></span>
+          </h2>
           {users.map((user) => {
             return (
               <UserCard
@@ -39,7 +43,7 @@ class Users extends React.Component {
         <Router className="leftUserCol">
           <Articles path="/articles/:author" />
         </Router>
-      </>
+      </main>
     );
   }
 

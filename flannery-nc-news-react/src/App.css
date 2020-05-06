@@ -61,13 +61,39 @@
   padding: 0;
 }
 
-.userList {
+.userPage {
   display: grid;
-  grid-template-areas: "leftUserCol" "users";
-  grid-template-columns: 70% auto;
+  grid-template-areas: "leftUserCol users";
+  grid-template-columns: auto 70%;
+  grid-template-rows: auto;
+}
+.userList {
+  grid-area: "users";
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+@media only screen and (max-width: 1050px) {
+  .artComList {
+    display: grid;
+    grid-template-areas: "main";
+    grid-template-columns: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .articleList {
+    display: grid;
+    grid-template-areas: "main";
+    grid-template-columns: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .idP {

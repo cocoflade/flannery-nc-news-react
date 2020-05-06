@@ -22,6 +22,9 @@ class Articles extends React.Component {
     if (prevProps.topic !== this.props.topic) {
       this.fetchArticles();
     }
+    if (prevProps.author !== this.props.author) {
+      this.fetchArticles();
+    }
   }
 
   articleSortBy = (sorted) => {
@@ -29,18 +32,19 @@ class Articles extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     const { articles, isLoading, err } = this.state;
     if (isLoading) return <LoadingSign />;
     if (err) return <ErrorDisplay err={err} />;
     return (
-      <>
+      <section className="articleList">
         <SortButtons sorted={this.articleSortBy} />
         <ul className="artComList">
           {articles.map((article) => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
         </ul>
-      </>
+      </section>
     );
   }
 
