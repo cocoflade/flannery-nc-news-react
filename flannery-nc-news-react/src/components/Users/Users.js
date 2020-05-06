@@ -4,7 +4,7 @@ import ErrorDisplay from "../ErrorDisplay";
 import LoadingSign from "../Loading/LoadingSign";
 import UserCard from "./UserCard";
 import { Router } from "@reach/router";
-import Articles from "../articles";
+import Articles from "../Articles/articles";
 
 class Users extends React.Component {
   state = {

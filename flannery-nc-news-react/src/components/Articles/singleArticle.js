@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "@reach/router";
 import ArticleVoteUpdater from "./Article.voteUpdater";
-import * as api from "../utils/api";
-import ErrorDisplay from "./ErrorDisplay";
-import LoadingSign from "../components/Loading/LoadingSign";
+import * as api from "../../utils/api";
+import ErrorDisplay from "../ErrorDisplay";
+import LoadingSign from "../Loading/LoadingSign";
 
 class SingleArticle extends React.Component {
   state = {

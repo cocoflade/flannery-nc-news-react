@@ -3,7 +3,7 @@ import { Router } from "@reach/router";
 import "../App.css";
 import { Link } from "@reach/router";
 import * as api from "../utils/api";
-import Articles from "./articles";
+import Articles from "./Articles/articles";
 
 class Topics extends React.Component {
   state = {

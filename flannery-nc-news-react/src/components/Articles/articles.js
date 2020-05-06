@@ -1,10 +1,10 @@
 import React from "react";
-import "../App.css";
-import * as api from "../utils/api";
+import "../../App.css";
+import * as api from "../../utils/api";
 import ArticleCard from "./Article.card";
-import SortButtons from "./SortButtons";
-import ErrorDisplay from "./ErrorDisplay";
-import LoadingSign from "../components/Loading/LoadingSign";
+import SortButtons from "../SortButtons";
+import ErrorDisplay from "../ErrorDisplay";
+import LoadingSign from "../Loading/LoadingSign";
 
 class Articles extends React.Component {
   state = {

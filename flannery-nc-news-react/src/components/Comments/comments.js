@@ -1,9 +1,9 @@
 import React from "react";
-import * as api from "../utils/api";
+import * as api from "../../utils/api";
 import CommentCard from "./comment.card";
 import CommentForm from "./comment.form";
-import ErrorDisplay from "./ErrorDisplay";
-import LoadingSign from "../components/Loading/LoadingSign";
+import ErrorDisplay from "../ErrorDisplay";
+import LoadingSign from "../Loading/LoadingSign";
 
 class Comments extends React.Component {
   state = {

@@ -3,10 +3,10 @@ import "./App.css";
 import Header from "./components/header";
 import NavBar from "./components/navBar";
 import { Router } from "@reach/router";
-import Articles from "./components/articles";
-import Topics from "./components/topics";
-import Comments from "./components/comments";
-import SingleArticle from "./components/singleArticle";
+import Articles from "./components/Articles/articles";
+import Topics from "./components/Topics";
+import Comments from "./components/Comments/comments";
+import SingleArticle from "./components/Articles/singleArticle";
 import ErrorDisplay from "./components/ErrorDisplay";
 import Users from "./components/Users/Users";
 
