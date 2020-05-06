@@ -24,7 +24,7 @@ class Users extends React.Component {
     if (err) return <ErrorDisplay err={err} />;
     return (
       <>
-        <ul className="commentList">
+        <ul className="userList">
           {users.map((user) => {
             return (
               <UserCard
@@ -36,7 +36,7 @@ class Users extends React.Component {
             );
           })}
         </ul>
-        <Router>
+        <Router className="leftUserCol">
           <Articles path="/articles/:author" />
         </Router>
       </>

@@ -1,6 +1,9 @@
+html,
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
+  height: 100%;
+  background-color: rgb(228, 189, 189);
 }
 
 code {

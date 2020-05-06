@@ -6,9 +6,9 @@ function CommentCard(props) {
   const humanDate = new Date(comment.created_at).toDateString();
 
   return (
-    <li className="comment">
+    <li className="articleComment">
       <p className="bodyP">"{comment.body}"</p>
-      <p className="authorDateP">
+      <p className="authorDateVoteP">
         Published by {comment.author} on {humanDate}
       </p>
 

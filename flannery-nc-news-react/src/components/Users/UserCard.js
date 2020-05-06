@@ -4,9 +4,9 @@ import { Link } from "@reach/router";
 function UserCard(props) {
   const { username, avatar, name } = props;
   return (
-    <li className="comment">
-      <Link className="artLink" to={`/users/articles/${username}`}>
-        <h3 className="articleLink">
+    <li className="articleComment">
+      <Link className="headingLink" to={`/users/articles/${username}`}>
+        <h3 className="headingLink">
           <span className="redSyntax">&lt;</span>
           {username}
           <span className="redSyntax">/></span>

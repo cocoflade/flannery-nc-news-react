@@ -12,7 +12,7 @@ class ArticleVoteUpdater extends React.Component {
     const { voteDifference } = this.state;
     return (
       <div>
-        <p className="voteP">
+        <p className="authorDateVoteP">
           <button className="voteBut" onClick={() => this.handleVote(1)}>
             &#8593;
           </button>{" "}

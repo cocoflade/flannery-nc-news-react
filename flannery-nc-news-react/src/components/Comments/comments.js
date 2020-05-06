@@ -23,22 +23,24 @@ class Comments extends React.Component {
     if (isLoading) return <LoadingSign />;
     if (err) return <ErrorDisplay err={err} />;
     return (
-      <ul key={comments.comment_id} className="commentList">
+      <>
         <CommentForm
           addStateComment={this.addStateComment}
           article_id={article_id}
           user={user}
         />
-        {comments.map((comment) => {
-          return (
-            <CommentCard
-              comment={comment}
-              key={comment.comment_id}
-              deleteComment={this.deleteComment}
-            />
-          );
-        })}
-      </ul>
+        <ul key={comments.comment_id} className="artComList">
+          {comments.map((comment) => {
+            return (
+              <CommentCard
+                comment={comment}
+                key={comment.comment_id}
+                deleteComment={this.deleteComment}
+              />
+            );
+          })}
+        </ul>
+      </>
     );
   }
 

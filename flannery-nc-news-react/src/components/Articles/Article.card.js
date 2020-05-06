@@ -18,18 +18,18 @@ class ArticleCard extends React.Component {
     const humanDate = new Date(article.created_at).toDateString();
 
     return (
-      <li className="article">
-        <Link className="artLink" to={`/articles/${article.article_id}`}>
-          <h3 className="articleLink">
+      <li className="articleComment">
+        <Link className="headingLink" to={`/articles/${article.article_id}`}>
+          <h3 className="headingLink">
             <span className="redSyntax">&lt;</span>
             {article.title}
             <span className="redSyntax">/></span>
           </h3>
         </Link>
 
-        <p className="authorDateP">
+        <p className="authorDateVoteP">
           Published by{" "}
-          <Link className="articleLink" to={`/users`}>
+          <Link className="headingLink" to={`/users`}>
             {article.author}
           </Link>{" "}
           on {humanDate}
@@ -44,12 +44,12 @@ class ArticleCard extends React.Component {
           <section>
             <p className="idP">Article ID: {article.article_id}</p>
             <p className="bodyP">{article.body}</p>
-            <p className="voteP">
+            <p className="authorDateVoteP">
               There's more like this under the {article.topic} tab!
             </p>
 
             <Link
-              className="articleLink"
+              className="headingLink"
               to={`/articles/${article.article_id}/comments`}
             >
               <button>See comments</button>

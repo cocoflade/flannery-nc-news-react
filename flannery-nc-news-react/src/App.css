@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: rgb(228, 189, 189);
+  min-width: 380px;
 }
 
 .app-header {
@@ -39,41 +40,31 @@
   font-weight: bold;
 }
 
-.link:visited {
-  color: rgb(233, 233, 233);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.articleLink {
+.headingLink {
   color: #202829;
   text-decoration: none;
   font-weight: bold;
 }
 
-.articleLink:hover {
+.headingLink:hover {
   color: #ba1f31;
   text-decoration: none;
   font-weight: bold;
 }
 
-.articleLink:visited {
-  color: #202829;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.artLink {
-  text-decoration: none;
-}
-
-.articleList {
+.artComList {
+  display: grid;
+  grid-template-areas: "main" "users";
+  grid-template-columns: 50% auto;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.commentList {
+.userList {
+  display: grid;
+  grid-template-areas: "leftUserCol" "users";
+  grid-template-columns: 70% auto;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -83,7 +74,7 @@
   font-size: small;
 }
 
-.authorDateP {
+.authorDateVoteP {
   font-weight: bold;
 }
 
@@ -91,19 +82,10 @@
   font-style: italic;
 }
 
-.voteP {
-  font-weight: bold;
-}
+/* --------------------------------- */
 
-.article {
+.articleComment {
   background-color: rgb(252, 252, 252);
-  border: 2px solid #202829;
-  margin: 10px;
-  padding: 5px;
-}
-
-.comment {
-  background-color: rgb(255, 255, 255);
   border: 2px solid #202829;
   margin: 10px;
   padding: 5px;
@@ -115,6 +97,7 @@ button {
   color: white;
   border: 2px solid #202829;
   margin: 2px;
+  border-radius: 8%;
 }
 
 button:hover {
@@ -125,14 +108,9 @@ button:hover {
 
 .voteBut {
   border-radius: 60%;
-  /* font-size: large; */
 }
 
 img {
-  max-height: 100px;
-  max-width: 100px;
-}
-
-.topicPage {
-  background-color: teal;
+  max-height: 80px;
+  max-width: 80px;
 }

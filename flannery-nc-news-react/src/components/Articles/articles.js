@@ -35,7 +35,7 @@ class Articles extends React.Component {
     return (
       <>
         <SortButtons sorted={this.articleSortBy} />
-        <ul className="articleList">
+        <ul className="artComList">
           {articles.map((article) => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
