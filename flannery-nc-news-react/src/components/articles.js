@@ -49,14 +49,14 @@ class Articles extends React.Component {
 
     api
       .getArticles(topic, article_id, sorted)
-      .then((response) => {
+      .then((articles) => {
         this.setState({
-          articles: response.data.articles,
+          articles: articles,
           isLoading: false,
         });
       })
       .catch((err) => {
-        this.setState({ isLoading: false, err: err.response.data.msg });
+        this.setState({ isLoading: false, err: err.data });
       });
   }
 }

@@ -23,7 +23,7 @@ class Comments extends React.Component {
     if (isLoading) return <LoadingSign />;
     if (err) return <ErrorDisplay err={err} />;
     return (
-      <ul className="commentList">
+      <ul key={comments.comment_id} className="commentList">
         <CommentForm
           addStateComment={this.addStateComment}
           article_id={article_id}
@@ -66,7 +66,7 @@ class Comments extends React.Component {
         this.setState({ comments, isLoading: false });
       })
       .catch((err) => {
-        this.setState({ isLoading: false, err: err.response.data.msg });
+        this.setState({ isLoading: false, err: err.data });
       });
   }
 }

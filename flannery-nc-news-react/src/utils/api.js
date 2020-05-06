@@ -1,37 +1,42 @@
 import axios from "axios";
 
-export const getArticles = (topic, article_id, sorted) => {
-  return axios.get("https://flannery-nc-news.herokuapp.com/api/articles", {
-    params: {
-      topic: topic,
-      article_id: article_id,
-      sorted: sorted,
-    },
-  });
+export const getArticles = async (topic, article_id, sorted) => {
+  const { data } = await axios.get(
+    "https://flannery-nc-news.herokuapp.com/api/articles",
+    {
+      params: {
+        topic: topic,
+        article_id: article_id,
+        sorted: sorted,
+      },
+    }
+  );
+  return data.articles;
 };
 
-export const getArticle = (id) => {
-  return axios
-    .get(`https://flannery-nc-news.herokuapp.com/api/articles/${id}`)
-    .then(({ data: { article } }) => {
-      return article;
-    });
+export const getArticle = async (id) => {
+  const { data } = await axios.get(
+    `https://flannery-nc-news.herokuapp.com/api/articles/${id}`
+  );
+  return data.article;
 };
 
-export const getArticleComment = (id) => {
-  return axios
-    .get(`https://flannery-nc-news.herokuapp.com/api/articles/${id}/comments`)
-    .then(({ data: { comments } }) => {
-      return comments;
-    });
+export const getArticleComment = async (id) => {
+  const { data } = await axios.get(
+    `https://flannery-nc-news.herokuapp.com/api/articles/${id}/comments`
+  );
+  return data.comments;
 };
 
-export const getTopics = () => {
-  return axios.get("https://flannery-nc-news.herokuapp.com/api/topics");
+export const getTopics = async () => {
+  const { data } = await axios.get(
+    "https://flannery-nc-news.herokuapp.com/api/topics"
+  );
+  return data.topics;
 };
 
-export const PostComment = (article_id, addStateComment, user, body) => {
-  return axios.post(
+export const PostComment = async (article_id, addStateComment, user, body) => {
+  const { data } = await axios.post(
     `https://flannery-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
     {
       body,
@@ -39,22 +44,25 @@ export const PostComment = (article_id, addStateComment, user, body) => {
       username: user,
     }
   );
+  return data.comment;
 };
 
-export const UpdateArticleVotes = (id, voteChange) => {
-  return axios.patch(
+export const UpdateArticleVotes = async (id, voteChange) => {
+  const { data } = await axios.patch(
     `https://flannery-nc-news.herokuapp.com/api/articles/${id}`,
     {
       votes: voteChange,
     }
   );
+  return data.votes;
 };
 
-export const UpdateCommentVotes = (comment_id, voteChange) => {
-  return axios.patch(
+export const UpdateCommentVotes = async (comment_id, voteChange) => {
+  const { data } = await axios.patch(
     `https://flannery-nc-news.herokuapp.com/api/comments/${comment_id}`,
     {
       votes: voteChange,
     }
   );
+  return data.votes;
 };

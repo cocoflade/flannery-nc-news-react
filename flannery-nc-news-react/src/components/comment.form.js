@@ -15,8 +15,8 @@ class CommentForm extends React.Component {
     event.preventDefault();
     api
       .PostComment(article_id, addStateComment, user, body)
-      .then((response) => {
-        addStateComment(response.data.comment);
+      .then((comment) => {
+        addStateComment({ comment });
       })
       .catch((err) => console.dir(err));
   };

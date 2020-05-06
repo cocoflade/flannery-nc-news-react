@@ -60,7 +60,7 @@ class SingleArticle extends React.Component {
         this.setState({ article, isLoading: false });
       })
       .catch((err) => {
-        this.setState({ isLoading: false, err: err.response.data.msg });
+        this.setState({ isLoading: false, err: err.data });
       });
   }
 }
