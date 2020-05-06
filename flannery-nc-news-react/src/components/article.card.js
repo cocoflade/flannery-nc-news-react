@@ -28,8 +28,13 @@ class ArticleCard extends React.Component {
         </Link>
 
         <p className="authorDateP">
-          Published by {article.author} on {humanDate}
+          Published by{" "}
+          <Link className="articleLink" to={`/users`}>
+            {article.author}
+          </Link>{" "}
+          on {humanDate}
         </p>
+
         <p className="idP">{article.comment_count} Comments</p>
         <ArticleVoteUpdater votes={article.votes} id={article.article_id} />
 

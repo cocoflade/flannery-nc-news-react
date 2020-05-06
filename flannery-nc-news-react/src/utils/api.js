@@ -1,10 +1,11 @@
 import axios from "axios";
 
-export const getArticles = async (topic, article_id, sorted) => {
+export const getArticles = async (author, topic, article_id, sorted) => {
   const { data } = await axios.get(
     "https://flannery-nc-news.herokuapp.com/api/articles",
     {
       params: {
+        author: author,
         topic: topic,
         article_id: article_id,
         sorted: sorted,
@@ -65,4 +66,11 @@ export const UpdateCommentVotes = async (comment_id, voteChange) => {
     }
   );
   return data.votes;
+};
+
+export const getUsers = async () => {
+  const { data } = await axios.get(
+    "https://flannery-nc-news.herokuapp.com/api/users"
+  );
+  return data.users;
 };

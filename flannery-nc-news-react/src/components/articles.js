@@ -45,10 +45,10 @@ class Articles extends React.Component {
   }
 
   fetchArticles(sorted) {
-    const { topic, article_id } = this.props;
+    const { author, topic, article_id } = this.props;
 
     api
-      .getArticles(topic, article_id, sorted)
+      .getArticles(author, topic, article_id, sorted)
       .then((articles) => {
         this.setState({
           articles: articles,

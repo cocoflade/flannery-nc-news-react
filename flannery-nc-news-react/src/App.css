@@ -3,11 +3,6 @@
   background-color: rgb(228, 189, 189);
 }
 
-/* .main {
-  display: grid;
-  grid-template-columns: 60% auto 30%;
-} */
-
 .app-header {
   background-color: #202829;
   color: white;
@@ -101,14 +96,14 @@
 }
 
 .article {
-  background-color: lightyellow;
+  background-color: rgb(252, 252, 252);
   border: 2px solid #202829;
   margin: 10px;
   padding: 5px;
 }
 
 .comment {
-  background-color: lightyellow;
+  background-color: rgb(255, 255, 255);
   border: 2px solid #202829;
   margin: 10px;
   padding: 5px;
@@ -131,4 +126,13 @@ button:hover {
 .voteBut {
   border-radius: 60%;
   /* font-size: large; */
+}
+
+img {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.topicPage {
+  background-color: teal;
 }

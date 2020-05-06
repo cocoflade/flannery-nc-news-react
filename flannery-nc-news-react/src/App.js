@@ -8,6 +8,7 @@ import Topics from "./components/topics";
 import Comments from "./components/comments";
 import SingleArticle from "./components/singleArticle";
 import ErrorDisplay from "./components/ErrorDisplay";
+import Users from "./components/Users/Users";
 
 class App extends React.Component {
   state = {
@@ -20,13 +21,13 @@ class App extends React.Component {
       <div className="App">
         <Header user={user} />
         <NavBar />
-
         <Router>
           <Articles path="/" />
-          <Articles path="/articles" />
+          <Articles path="/articles/*" />
           <SingleArticle path="/articles/:article_id" />
           <Comments path="/articles/:article_id/comments" user={user} />
           <Topics path="/topics/*" />
+          <Users path="/users/*" />
           <ErrorDisplay default />
         </Router>
       </div>
