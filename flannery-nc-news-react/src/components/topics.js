@@ -4,10 +4,12 @@ import "../App.css";
 import { Link } from "@reach/router";
 import * as api from "../utils/api";
 import Articles from "./Articles/articles";
+import LoadingSign from "./Loading/LoadingSign";
 
 class Topics extends React.Component {
   state = {
     topics: [],
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -15,7 +17,9 @@ class Topics extends React.Component {
   }
 
   render() {
-    const { topics } = this.state;
+    const { topics, isLoading } = this.state;
+    if (isLoading) return <LoadingSign />;
+
     return (
       <>
         <nav className="topicBar">
