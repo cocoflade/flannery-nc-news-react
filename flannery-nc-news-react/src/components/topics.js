@@ -42,7 +42,7 @@ class Topics extends React.Component {
     api
       .getTopics()
       .then((topics) => {
-        this.setState({ topics });
+        this.setState({ topics, isLoading: false });
       })
       .catch((err) => {
         this.setState({ isLoading: false, err: err.data });

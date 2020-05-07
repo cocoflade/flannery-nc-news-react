@@ -15,6 +15,10 @@
   color: #ba1f31 !important;
 }
 
+h5 {
+  color: #fcb9b2;
+}
+
 .navBar {
   display: flex;
   flex-direction: row;
@@ -47,13 +51,13 @@
 }
 
 .headingLink {
-  color: #202829;
+  color: #ba1f31;
   text-decoration: none;
   font-weight: bold;
 }
 
 .headingLink:hover {
-  color: #ba1f31;
+  color: #202829;
   text-decoration: none;
   font-weight: bold;
 }
@@ -117,12 +121,6 @@
   }
 }
 
-/* @media only screen and (max-width: 650px) {
-  .headingLink {
-    font-stretch: ;
-  }
-} */
-
 .idP {
   font-size: small;
 }
@@ -146,7 +144,7 @@
 }
 
 button {
-  background-color: #202829;
+  background-color: #b93c4b;
   font-weight: bold;
   color: white;
   border: 2px solid #202829;

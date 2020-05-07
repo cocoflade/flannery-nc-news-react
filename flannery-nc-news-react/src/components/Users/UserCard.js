@@ -11,8 +11,11 @@ function UserCard(props) {
           {username}
           <span className="redSyntax">/></span>
         </h3>
-      </Link>{" "}
-      <img src={avatar} alt="avatar"></img>
+      </Link>
+      <Link className="headingLink" to={`/users/articles/${username}`}>
+        <img src={avatar} alt="avatar"></img>
+      </Link>
+
       <p className="authorDateVoteP">{name}</p>
     </li>
   );
