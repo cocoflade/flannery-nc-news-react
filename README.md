@@ -15,6 +15,10 @@ Northcoders News has a series of articles divided into topics. Each article has 
 
 # Getting Started
 
+The minimum version of Node required for this project is *v12.14.0*, you can check what version you are using with: 
+
+```node --version```
+
 In order to get as copy of the project up and running on your local machine you must first clone this repository from your CLI using:
 
 ``` https://github.com/cocoflade/flannery-nc-news-react.git ```
