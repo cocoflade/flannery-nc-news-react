@@ -42,6 +42,10 @@
   font-weight: bold;
 }
 
+.headingUserLink {
+  font-size: 2vw;
+}
+
 .headingLink {
   color: #202829;
   text-decoration: none;
@@ -54,10 +58,23 @@
   font-weight: bold;
 }
 
+.UserLink {
+  color: #202829;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 3vw;
+}
+
+.UserLink:hover {
+  color: #ba1f31;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .artComList {
   display: grid;
-  grid-template-areas: "main" "users";
-  grid-template-columns: 50% auto;
+  grid-template-areas: "main" "main2";
+  grid-template-columns: 50% 50%;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -66,9 +83,10 @@
 .userPage {
   display: grid;
   grid-template-areas: "leftUserCol users";
-  grid-template-columns: auto 70%;
+  grid-template-columns: 30% auto;
   grid-template-rows: auto;
 }
+
 .userList {
   grid-area: "users";
   list-style-type: none;
@@ -84,6 +102,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    min-width: auto;
   }
 }
 
@@ -97,6 +116,12 @@
     padding: 0;
   }
 }
+
+/* @media only screen and (max-width: 650px) {
+  .headingLink {
+    font-stretch: ;
+  }
+} */
 
 .idP {
   font-size: small;

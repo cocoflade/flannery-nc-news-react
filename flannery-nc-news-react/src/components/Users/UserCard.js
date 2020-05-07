@@ -6,7 +6,7 @@ function UserCard(props) {
   return (
     <li className="articleComment">
       <Link className="headingLink" to={`/users/articles/${username}`}>
-        <h3 className="headingLink">
+        <h3 className="headingUserLink">
           <span className="redSyntax">&lt;</span>
           {username}
           <span className="redSyntax">/></span>
