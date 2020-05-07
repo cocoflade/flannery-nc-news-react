@@ -159,7 +159,9 @@ button:hover {
 }
 
 .voteBut {
-  border-radius: 60%;
+  border-radius: 50%;
+  background-color: #fcb9b2;
+  color: black;
 }
 
 img {
