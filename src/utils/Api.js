@@ -74,3 +74,10 @@ export const getUsers = async () => {
   );
   return data.users;
 };
+
+export const delComment = async (comment_id) => {
+  const { data } = await axios.delete(
+    `https://flannery-nc-news.herokuapp.com/api/comments/${comment_id}`
+  );
+  return data;
+};

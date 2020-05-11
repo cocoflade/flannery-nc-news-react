@@ -23,7 +23,9 @@ function CommentCard(props) {
 
       {comment.author === "jessjelly" ? (
         <section>
-          <button onClick={deleteComment}>delete comment</button>
+          <button onClick={() => deleteComment(comment.comment_id)}>
+            delete comment
+          </button>
         </section>
       ) : null}
     </li>

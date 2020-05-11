@@ -16,6 +16,24 @@ class Comments extends React.Component {
     this.fetchComments();
   }
 
+  // componentDidUpdate(prevState) {
+  //   if (prevState.comments !== this.state.comments) {
+  //     console.log("hi");
+  //     // this.fetchComments();
+  //   }
+  // }
+
+  deleteComment = (commentIdToDelete) => {
+    api.delComment(commentIdToDelete).then(() => {
+      this.setState((currState) => {
+        const filteredArray = currState.comments.filter((comment) => {
+          return commentIdToDelete !== comment.comment_id;
+        });
+        return { comments: filteredArray };
+      });
+    });
+  };
+
   render() {
     const { comments, isLoading, err } = this.state;
     const { article_id, user } = this.props;
@@ -29,7 +47,7 @@ class Comments extends React.Component {
           article_id={article_id}
           user={user}
         />
-        <ul key={comments.comment_id} className="artComList">
+        <ul className="artComList">
           {comments.map((comment) => {
             return (
               <CommentCard
@@ -43,14 +61,6 @@ class Comments extends React.Component {
       </>
     );
   }
-
-  deleteComment = (index) => {
-    this.setState((currState) => {
-      const copyArr = [...currState.comments];
-      copyArr.splice(index, 1);
-      return { comments: copyArr };
-    });
-  };
 
   addStateComment = (newComment) => {
     this.setState((currState) => {

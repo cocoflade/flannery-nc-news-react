@@ -15,8 +15,10 @@ class CommentForm extends React.Component {
     api
       .PostComment(article_id, addStateComment, user, body)
       .then((comment) => {
-        addStateComment({ comment });
+        this.setState({ body: "" });
+        addStateComment(comment);
       })
+
       .catch((err) => console.dir(err));
   };
 
