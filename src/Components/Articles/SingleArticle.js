@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { Link, Router } from "@reach/router";
 import VoteUpdater from "../VoteUpdater";
 import * as api from "../../utils/Api";
 import ErrorDisplay from "../ErrorDisplay";
 import LoadingSign from "../Loading/LoadingSign";
+import Comments from "../Comments/Comments";
 
 class SingleArticle extends React.Component {
   state = {
@@ -48,6 +49,9 @@ class SingleArticle extends React.Component {
         >
           <button>See comments</button>
         </Link>
+        <Router>
+          <Comments path={`/:${article.article_id}/comments`} />
+        </Router>
       </main>
     );
   }

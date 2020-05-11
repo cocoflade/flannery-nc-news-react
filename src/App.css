@@ -46,9 +46,15 @@ h5 {
   font-weight: bold;
 }
 
-.link:focus {
-  color: rgb(104, 212, 54);
+.topicLink {
+  color: rgb(255, 255, 255);
   text-decoration: none;
+  font-weight: bold;
+}
+
+.topicLink:focus {
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
   font-weight: bold;
 }
 
@@ -68,22 +74,9 @@ h5 {
   font-weight: bold;
 }
 
-.UserLink {
+.headingLink:focus {
   color: #202829;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 3vw;
-}
-
-.UserLink:hover {
-  color: #ba1f31;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.UserLink:focus {
-  color: #1fba2c;
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: bold;
 }
 
