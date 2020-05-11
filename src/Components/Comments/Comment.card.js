@@ -1,5 +1,5 @@
 import React from "react";
-import CommentVoteUpdater from "./Comment.voteUpdater";
+import VoteUpdater from "../VoteUpdater";
 
 function CommentCard(props) {
   const { comment, deleteComment } = props;
@@ -15,7 +15,7 @@ function CommentCard(props) {
       <p className="idP">
         Article ID: {comment.article_id} Comment ID: {comment.comment_id}
       </p>
-      <CommentVoteUpdater
+      <VoteUpdater
         votes={comment.votes}
         id={comment.article_id}
         comment_id={comment.comment_id}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import ArticleVoteUpdater from "./Article.voteUpdater";
+import VoteUpdater from "../VoteUpdater";
 
 class ArticleCard extends React.Component {
   state = {
@@ -36,7 +36,7 @@ class ArticleCard extends React.Component {
         </p>
 
         <p className="idP">{article.comment_count} Comments</p>
-        <ArticleVoteUpdater votes={article.votes} id={article.article_id} />
+        <VoteUpdater votes={article.votes} article_id={article.article_id} />
 
         <button onClick={this.showHideArticle}>Read all</button>
 

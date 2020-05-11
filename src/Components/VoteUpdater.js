@@ -1,7 +1,7 @@
 import React from "react";
-import * as api from "../../utils/Api";
+import * as api from "../utils/Api";
 
-class CommentVoteUpdater extends React.Component {
+class ArticleVoteUpdater extends React.Component {
   state = {
     voteDifference: 0,
     err: "",
@@ -16,7 +16,7 @@ class CommentVoteUpdater extends React.Component {
           <button className="voteBut" onClick={() => this.handleVote(1)}>
             &#8593;
           </button>{" "}
-          {votes + voteDifference} votes{" "}
+          {votes + voteDifference} Votes{" "}
           <button className="voteBut" onClick={() => this.handleVote(-1)}>
             &#8595;
           </button>
@@ -26,21 +26,25 @@ class CommentVoteUpdater extends React.Component {
   }
 
   handleVote = (voteChange) => {
-    const { comment_id } = this.props;
+    const { article_id, comment_id } = this.props;
     this.setState((currState) => {
       return { voteDifference: currState.voteDifference + voteChange };
     });
-    api.UpdateCommentVotes(comment_id, voteChange).catch(() => {
-      this.setState((currState) => {
-        return {
-          voteDifference: currState.voteDifference - voteChange,
-          err: "Sorry, try again later",
-        };
-      });
-    });
+    if (article_id !== undefined)
+      api.UpdateArticleVotes(article_id, voteChange);
+    if (comment_id !== undefined)
+      api
+        .UpdateCommentVotes(comment_id, voteChange)
+
+        .catch(() => {
+          this.setState((currState) => {
+            return {
+              voteDifference: currState.voteDifference - voteChange,
+              err: "Sorry, try again later",
+            };
+          });
+        });
   };
 }
 
-export default CommentVoteUpdater;
-
-// just refactoring the vote updater to work with comments, have a look at where its being passed from (comments) and make sure you add the comment id to the props for the path.
+export default ArticleVoteUpdater;

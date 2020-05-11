@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import ArticleVoteUpdater from "./Article.voteUpdater";
+import VoteUpdater from "../VoteUpdater";
 import * as api from "../../utils/Api";
 import ErrorDisplay from "../ErrorDisplay";
 import LoadingSign from "../Loading/LoadingSign";
@@ -34,7 +34,7 @@ class SingleArticle extends React.Component {
           Published by {article.author} on {humanDate}
         </p>
         <p>{article.comment_count} Comments</p>
-        <ArticleVoteUpdater votes={article.votes} id={article.article_id} />
+        <VoteUpdater votes={article.votes} id={article.article_id} />
 
         <p className="idP">Article ID: {article.article_id}</p>
         <p className="bodyP">{article.body}</p>

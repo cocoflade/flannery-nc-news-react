@@ -47,6 +47,7 @@ class Topics extends React.Component {
         this.setState({ topics, isLoading: false });
       })
       .catch((err) => {
+        console.dir(err);
         this.setState({ isLoading: false, err: err.data });
       });
   }

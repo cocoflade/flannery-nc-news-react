@@ -41,7 +41,7 @@ class Users extends React.Component {
           })}
         </ul>
         <Router className="leftUserCol">
-          <Articles path="/articles/:author" />
+          <Articles path="/:author" />
         </Router>
       </main>
     );

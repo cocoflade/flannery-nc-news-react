@@ -58,9 +58,9 @@ export const UpdateArticleVotes = async (id, voteChange) => {
   return data.votes;
 };
 
-export const UpdateCommentVotes = async (comment_id, voteChange) => {
+export const UpdateCommentVotes = async (id, voteChange) => {
   const { data } = await axios.patch(
-    `https://flannery-nc-news.herokuapp.com/api/comments/${comment_id}`,
+    `https://flannery-nc-news.herokuapp.com/api/comments/${id}`,
     {
       inc_votes: voteChange,
     }

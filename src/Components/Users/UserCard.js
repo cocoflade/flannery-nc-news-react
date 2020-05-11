@@ -5,14 +5,14 @@ function UserCard(props) {
   const { username, avatar, name } = props;
   return (
     <li className="articleComment">
-      <Link className="headingLink" to={`/users/articles/${username}`}>
+      <Link className="headingLink" to={`/users/${username}`}>
         <h3 className="headingUserLink">
           <span className="redSyntax">&lt;</span>
           {username}
           <span className="redSyntax">/></span>
         </h3>
       </Link>
-      <Link className="headingLink" to={`/users/articles/${username}`}>
+      <Link className="headingLink" to={`/users/${username}`}>
         <img src={avatar} alt="avatar"></img>
       </Link>
 
