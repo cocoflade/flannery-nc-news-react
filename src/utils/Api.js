@@ -52,7 +52,7 @@ export const UpdateArticleVotes = async (id, voteChange) => {
   const { data } = await axios.patch(
     `https://flannery-nc-news.herokuapp.com/api/articles/${id}`,
     {
-      votes: voteChange,
+      inc_votes: voteChange,
     }
   );
   return data.votes;
@@ -62,7 +62,7 @@ export const UpdateCommentVotes = async (comment_id, voteChange) => {
   const { data } = await axios.patch(
     `https://flannery-nc-news.herokuapp.com/api/comments/${comment_id}`,
     {
-      votes: voteChange,
+      inc_votes: voteChange,
     }
   );
   return data.votes;

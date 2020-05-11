@@ -30,14 +30,17 @@ class ArticleVoteUpdater extends React.Component {
     this.setState((currState) => {
       return { voteDifference: currState.voteDifference + voteChange };
     });
-    api.UpdateArticleVotes(id, voteChange).catch(() => {
-      this.setState((currState) => {
-        return {
-          voteDifference: currState.voteDifference - voteChange,
-          err: "Sorry, try again later",
-        };
+    api
+      .UpdateArticleVotes(id, voteChange)
+
+      .catch(() => {
+        this.setState((currState) => {
+          return {
+            voteDifference: currState.voteDifference - voteChange,
+            err: "Sorry, try again later",
+          };
+        });
       });
-    });
   };
 }
 

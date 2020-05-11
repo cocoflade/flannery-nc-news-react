@@ -81,6 +81,12 @@ h5 {
   font-weight: bold;
 }
 
+.UserLink:focus {
+  color: #1fba2c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .artComList {
   display: grid;
   grid-template-areas: "main" "main2";

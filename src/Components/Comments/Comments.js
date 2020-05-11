@@ -16,13 +16,6 @@ class Comments extends React.Component {
     this.fetchComments();
   }
 
-  // componentDidUpdate(prevState) {
-  //   if (prevState.comments !== this.state.comments) {
-  //     console.log("hi");
-  //     // this.fetchComments();
-  //   }
-  // }
-
   deleteComment = (commentIdToDelete) => {
     api.delComment(commentIdToDelete).then(() => {
       this.setState((currState) => {
