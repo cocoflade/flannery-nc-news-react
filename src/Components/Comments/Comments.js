@@ -71,7 +71,7 @@ class Comments extends React.Component {
         this.setState({ comments, isLoading: false });
       })
       .catch((err) => {
-        this.setState({ isLoading: false, err: err.data });
+        this.setState({ isLoading: false, err: err.response.data.msg });
       });
   }
 }

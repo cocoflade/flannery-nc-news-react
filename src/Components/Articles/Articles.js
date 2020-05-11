@@ -59,7 +59,7 @@ class Articles extends React.Component {
         });
       })
       .catch((err) => {
-        this.setState({ isLoading: false, err: err.data });
+        this.setState({ isLoading: false, err: err.response.data.msg });
       });
   }
 }
