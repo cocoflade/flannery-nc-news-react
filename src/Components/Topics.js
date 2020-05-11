@@ -5,11 +5,13 @@ import { Link } from "@reach/router";
 import * as api from "../utils/Api";
 import Articles from "./Articles/Articles";
 import LoadingSign from "./Loading/LoadingSign";
+import ErrorDisplay from "./ErrorDisplay";
 
 class Topics extends React.Component {
   state = {
     topics: [],
     isLoading: true,
+    err: "",
   };
 
   componentDidMount() {
@@ -17,9 +19,9 @@ class Topics extends React.Component {
   }
 
   render() {
-    const { topics, isLoading } = this.state;
+    const { topics, isLoading, err } = this.state;
     if (isLoading) return <LoadingSign />;
-
+    if (err) return <ErrorDisplay err={err} />;
     return (
       <>
         <nav className="topicBar">

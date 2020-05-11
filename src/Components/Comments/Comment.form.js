@@ -4,7 +4,6 @@ import * as api from "../../utils/Api";
 class CommentForm extends React.Component {
   state = {
     body: "",
-    article_id: "",
     user: "",
     err: "",
   };
